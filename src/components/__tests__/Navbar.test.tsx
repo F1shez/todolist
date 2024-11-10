@@ -6,11 +6,6 @@ import {  deleteTodo, Todo } from '../../todoSlice';
 
 // Мокаем store с тестами
 const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-    ...jest.requireActual('react-redux'),
-    useDispatch: () => mockDispatch,
-    useSelector: jest.fn().mockReturnValue([{ id: 1, text: 'Task 1', completed: false }, { id: 2, text: 'Task 2', completed: true }])
-}));
 
 describe('Navbar component', () => {
 
