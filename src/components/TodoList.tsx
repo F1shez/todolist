@@ -51,7 +51,7 @@ export function TodoList() {
                 }).map((todo: Todo) => (
                     <li
                         key={todo.id}
-                        className={"mt-2 mb-2 ml-4 " + (todo.completed ? "flex line-through decoration-gray-500" : "flex")}
+                        className={"w-full mt-2 mb-2 pl-4 " + (todo.completed ? "flex line-through decoration-gray-500" : "flex")}
                     >
                         <CardTask todo={todo} dispatch={dispatch} />
                     </li>
