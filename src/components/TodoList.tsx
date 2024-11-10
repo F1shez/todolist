@@ -24,8 +24,8 @@ export function TodoList() {
     return (
         <div className="w-2/5 bg-white h-full rounded-lg ">
             <div className="w-full flex">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute w-6 pt-1 pl-0.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="absolute w-6 pt-1 pl-0.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                 </svg>
                 <input
                     onKeyDown={(e) => {
@@ -50,10 +50,15 @@ export function TodoList() {
                             return true;
                     }
                 }).map((todo: Todo) => (
-                    <CardTask todo={todo} />
+                    <li
+                        key={todo.id}
+                        className={"mt-2 mb-2 ml-4 " + (todo.completed ? "flex line-through decoration-gray-500" : "flex")}
+                    >
+                        <CardTask todo={todo} />
+                    </li>
                 ))}{" "}
             </ul>{" "}
-                <Navbar todos={todos} setFilter={setTodoFilter} filter={todoFilter} />
+            <Navbar todos={todos} setFilter={setTodoFilter} filter={todoFilter} />
         </div>
     );
 }
