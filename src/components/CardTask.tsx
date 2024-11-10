@@ -1,12 +1,12 @@
-import { useDispatch } from "react-redux";
 import { Todo, toggleComplete } from "../todoSlice";
+import { Dispatch, UnknownAction } from "redux";
 
 interface CardTaskProps {
-    todo: Todo
+    todo: Todo;
+    dispatch: Dispatch<UnknownAction>
 }
 
-export function CardTask({ todo }: CardTaskProps) {
-    const dispatch = useDispatch();
+export function CardTask({ todo, dispatch }: CardTaskProps) {
 
     const handleToggleComplete = (id: number) => {
         dispatch(toggleComplete(id));
@@ -14,7 +14,7 @@ export function CardTask({ todo }: CardTaskProps) {
     return (
         <>
             <input onChange={() => handleToggleComplete(todo.id)} type="checkbox" name="" id="" />
-            <div className={"ml-1 " + (todo.completed ? "text-gray-500" : "text-black")}>{todo.text}{" "}</div>
+            <div className={"ml-1 " + (todo.completed ? "text-gray-500" : "text-black")}>{todo.text}</div>
         </>
     );
 }

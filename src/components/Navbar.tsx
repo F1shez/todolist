@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
 import { deleteTodo, Todo } from "../todoSlice";
+import { Dispatch, UnknownAction } from "redux";
 
 export enum TodoListFilter {
     All,
@@ -11,12 +11,11 @@ interface NavbarProps {
     todos: Todo[];
     filter: TodoListFilter;
     setFilter: (filter: TodoListFilter) => void;
+    dispatch: Dispatch<UnknownAction>;
 }
 
 
-export function Navbar({ todos, filter, setFilter }: NavbarProps) {
-
-    const dispatch = useDispatch();
+export function Navbar({ todos, filter, setFilter, dispatch }: NavbarProps) {
 
     function handleDeleteCompleted() {
         todos.filter(todo => todo.completed).forEach(todo => {
@@ -39,7 +38,7 @@ export function Navbar({ todos, filter, setFilter }: NavbarProps) {
                     onClick={() => { setFilter(TodoListFilter.Completed) }}>completed</button>
             </div>
             <div className="ml-4">
-                <button onClick={() => handleDeleteCompleted()}> clear completed </button>{" "}
+                <button onClick={() => handleDeleteCompleted()}> clear completed </button>
             </div>
         </div>
     )

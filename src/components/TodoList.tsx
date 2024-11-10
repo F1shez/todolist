@@ -36,10 +36,10 @@ export function TodoList() {
                     placeholder="What needs to be done?"
                     type="text"
                     value={text}
-                    onChange={handleInputChange} />{" "}
+                    onChange={handleInputChange} />
             </div>
             <ul className="">
-                {" "}
+                
                 {todos.filter(todo => {
                     switch (todoFilter) {
                         case TodoListFilter.Active:
@@ -54,11 +54,11 @@ export function TodoList() {
                         key={todo.id}
                         className={"mt-2 mb-2 ml-4 " + (todo.completed ? "flex line-through decoration-gray-500" : "flex")}
                     >
-                        <CardTask todo={todo} />
+                        <CardTask todo={todo} dispatch={dispatch} />
                     </li>
-                ))}{" "}
-            </ul>{" "}
-            <Navbar todos={todos} setFilter={setTodoFilter} filter={todoFilter} />
+                ))}
+            </ul>
+            <Navbar todos={todos} setFilter={setTodoFilter} filter={todoFilter} dispatch={dispatch} />
         </div>
     );
 }
