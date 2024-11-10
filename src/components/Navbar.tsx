@@ -24,7 +24,7 @@ export function Navbar({ todos, filter, setFilter, dispatch }: NavbarProps) {
     }
 
     return (
-        <div className="flex absolute bottom-4 w-2/5 items-center justify-center">
+        <div className="flex absolute bottom-4 w-2/3 md:w-2/5 items-center justify-center">
             <div>осталось задач: {todos.filter(todo => !todo.completed).length}</div>
             <div className="ml-4 space-x-4">
                 <button
