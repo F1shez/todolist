@@ -22,9 +22,21 @@ export function TodoList() {
     };
 
     return (
-        <div className="w-2/5 bg-white">
-            <div className="w-full">
-                <input onKeyDown={(e) => { if (e.key === 'Enter') handleAddTodo() }} className="h-8 w-full" placeholder="What needs to be done?" type="text" value={text} onChange={handleInputChange} />{" "}
+        <div className="w-2/5 bg-white h-full rounded-lg ">
+            <div className="w-full flex">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute w-6 pt-1 pl-0.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                </svg>
+                <input
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter')
+                            handleAddTodo()
+                    }}
+                    className="h-8 w-full pl-7 rounded-lg"
+                    placeholder="What needs to be done?"
+                    type="text"
+                    value={text}
+                    onChange={handleInputChange} />{" "}
             </div>
             <ul className="">
                 {" "}
@@ -38,7 +50,7 @@ export function TodoList() {
                             return true;
                     }
                 }).map((todo: Todo) => (
-                    <CardTask todo={todo}/>
+                    <CardTask todo={todo} />
                 ))}{" "}
             </ul>{" "}
                 <Navbar todos={todos} setFilter={setTodoFilter} filter={todoFilter} />

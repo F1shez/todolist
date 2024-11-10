@@ -14,10 +14,10 @@ export function CardTask({ todo }: CardTaskProps) {
     return (
         <li
             key={todo.id}
-            className={todo.completed ? "flex line-through decoration-gray-500" : "flex"}
+            className={"mt-2 mb-2 ml-4 " + (todo.completed ? "flex line-through decoration-gray-500" : "flex")}
         >
             <input onChange={() => handleToggleComplete(todo.id)} type="checkbox" name="" id="" />
-            <div className={todo.completed ? "ml-2 text-gray-500" : "ml-2 text-black"}>{todo.text}{" "}</div>
+            <div className={"ml-1 " + (todo.completed ? "text-gray-500" : "text-black")}>{todo.text}{" "}</div>
         </li>
     );
 }
