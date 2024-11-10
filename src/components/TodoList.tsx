@@ -24,7 +24,12 @@ export function TodoList() {
     return (
         <div className="w-3/4 md:w-2/5 bg-white h-full rounded-lg ">
             <div className="w-full flex">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="absolute w-6 pt-1 pl-0.5">
+                <svg onClick={handleAddTodo} 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                strokeWidth="1.5" 
+                stroke="currentColor" 
+                className="absolute w-6 pt-1 pl-0.5 cursor-pointer">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
                 </svg>
                 <input
